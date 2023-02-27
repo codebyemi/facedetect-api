@@ -60,12 +60,12 @@ const register = async (req, res, db) => {
       .json("Incorrect format for username on registration 🚫");
   }
 
+  const hash = bcrypt.hashSync(password, 10);
   const users = await db.query(
     "INSERT INTO users (id, email, password, username) VALUES($1, $2, $3, $4) RETURNING *",
     [id, email, hash, username]
   );
   const user = users.rows[0];
-  const hash = bcrypt.hashSync(password, 10);
 
   const token = jwt.sign({ id: user.id }, "secretKey", {
     expiresIn: 86400, // expires in 24 hours
