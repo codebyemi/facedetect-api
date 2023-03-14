@@ -1,4 +1,4 @@
-## 🧠 facedetect-api
+# 🧠 facedetect-api
 
 <div align="center">
  <img src="https://github.com/codebyemi/facedetect-api/blob/master/clarifai.jpg" width="800px">
